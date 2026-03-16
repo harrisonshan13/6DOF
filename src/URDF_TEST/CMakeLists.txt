@@ -14,5 +14,15 @@ install(DIRECTORY
   launch
   DESTINATION share/${PROJECT_NAME}
 )
-
+if(IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/config")
+  install(DIRECTORY config DESTINATION share/${PROJECT_NAME})
+endif()
+# Add this before the ament_package() line
+install(DIRECTORY meshes urdf launch
+  DESTINATION share/${PROJECT_NAME}
+)
+# Add 'rviz' to this list
+install(DIRECTORY launch urdf meshes rviz
+  DESTINATION share/${PROJECT_NAME}
+)
 ament_package()
