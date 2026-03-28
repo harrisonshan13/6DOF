@@ -17,14 +17,14 @@ ADDR_LOCK            = 55   # EEPROM Lock (0=unlock, 1=lock)
 SHOULDER_ID = 2
 ELBOW_ID    = 3
 
-# ─── Joint Names (matching your current URDF) ─────────────────────────────────
-SHOULDER_JOINT = 'Shoulder JNT'
-ELBOW_JOINT    = 'Elbow JNT'
+# ─── Joint Names (matching 3DOF URDF) ─────────────────────────────────────────
+SHOULDER_JOINT = 'SHOULDER_JNT'
+ELBOW_JOINT    = 'ELBOW_JNT'
 
 
-class STSServoNode(Node):
+class STSServoNode3DOF(Node):
     def __init__(self):
-        super().__init__('sts_servo_node')
+        super().__init__('sts_servo_node_3dof')
 
         # ── Hardware Init ──────────────────────────────────────────────────────
         self.port_handler   = PortHandler('/dev/ttyACM0')
@@ -70,7 +70,7 @@ class STSServoNode(Node):
         self.add_on_set_parameters_callback(self.parameter_callback)
 
         self.get_logger().info(
-            "Motor Node Ready.\n"
+            "3DOF Motor Node Ready.\n"
             f"  Shoulder → ID {SHOULDER_ID} ({SHOULDER_JOINT})\n"
             f"  Elbow    → ID {ELBOW_ID} ({ELBOW_JOINT})\n"
             "  Listening on: /joint_commands\n"
@@ -80,9 +80,9 @@ class STSServoNode(Node):
     # ── Hardware Parameter Sync ────────────────────────────────────────────────
     def update_hardware(self):
         """Push current ROS parameters to both motors."""
-        p_gain  = self.get_parameter('servo_p_gain').value
+        p_gain   = self.get_parameter('servo_p_gain').value
         m_torque = self.get_parameter('max_torque').value
-        punch   = self.get_parameter('punch').value
+        punch    = self.get_parameter('punch').value
 
         for motor_id in [SHOULDER_ID, ELBOW_ID]:
             self.packet_handler.write1ByteTxRx(self.port_handler, motor_id, ADDR_P_GAIN,     p_gain)
@@ -149,7 +149,7 @@ class STSServoNode(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-    node = STSServoNode()
+    node = STSServoNode3DOF()
     try:
         rclpy.spin(node)
     except KeyboardInterrupt:

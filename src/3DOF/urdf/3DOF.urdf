@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="3DOF">
+  <link
+    name="BASE">
+    <inertial>
+      <origin
+        xyz="-0.046722 0.016179 -0.00011322"
+        rpy="0 0 0" />
+      <mass
+        value="0.39488" />
+      <inertia
+        ixx="0.00075847"
+        ixy="1.1116E-07"
+        ixz="-1.3265E-10"
+        iyy="0.0004355"
+        iyz="-4.6604E-10"
+        izz="0.00044714" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 -0.030"
+        rpy="0 -1.5708 0" />
+      <geometry>
+        <mesh
+          filename="package://3DOF/meshes/BASE.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89412 0.89412 0.89412 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 -0.030"
+        rpy="0 -1.5708 0" />
+      <geometry>
+        <mesh
+          filename="package://3DOF/meshes/BASE.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="360">
+    <inertial>
+      <origin
+        xyz="0.000451242535699416 -3.21293104430659E-08 -0.0140878164140089"
+        rpy="0 0 0" />
+      <mass
+        value="0.0909445849181863" />
+      <inertia
+        ixx="4.01654776799178E-05"
+        ixy="-2.23532303913554E-11"
+        ixz="8.87745353970843E-09"
+        iyy="4.24973750262404E-05"
+        iyz="-3.56250430080118E-12"
+        izz="6.76207003772057E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://3DOF/meshes/360.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.894117647058823 0.894117647058823 0.894117647058823 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://3DOF/meshes/360.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="360_JNT"
+    type="revolute">
+    <origin
+      xyz="0 0 0.040"
+      rpy="0 0 0" />
+    <parent
+      link="BASE" />
+    <child
+      link="360" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0.5"
+      velocity="0" />
+  </joint>
+  <link
+    name="SHOULDER">
+    <inertial>
+      <origin
+        xyz="0.103285145106398 0.000611682495221113 -0.000349167698933736"
+        rpy="0 0 0" />
+      <mass
+        value="0.258971956174642" />
+      <inertia
+        ixx="8.49110245197935E-05"
+        ixy="8.87745353986522E-09"
+        ixz="1.11698926725844E-06"
+        iyy="0.000440711763564425"
+        iyz="-2.2353230404908E-11"
+        izz="0.000479430446230574" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://3DOF/meshes/SHOULDER.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.498039215686275 0.498039215686275 0.498039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://3DOF/meshes/SHOULDER.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="SHOULDER_JNT"
+    type="revolute">
+    <origin
+      xyz="0 0 0.0125"
+      rpy="-3.1416 -1.3223 1.5708" />
+    <parent
+      link="360" />
+    <child
+      link="SHOULDER" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="ELBOW">
+    <inertial>
+      <origin
+        xyz="0.0904844036220961 0.000730000000000163 -0.000402452516485879"
+        rpy="0 0 0" />
+      <mass
+        value="0.224676741565665" />
+      <inertia
+        ixx="8.04797113889882E-05"
+        ixy="-3.9387032047325E-20"
+        ixz="1.11699282976277E-06"
+        iyy="0.00043347009515784"
+        iyz="3.76929661528164E-20"
+        izz="0.000471085671685679" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://3DOF/meshes/ELBOW.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.498039215686275 0.498039215686275 0.498039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://3DOF/meshes/ELBOW.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="ELBOW_JNT"
+    type="revolute">
+    <origin
+      xyz="0.2 0 0"
+      rpy="-3.1416 -1.5349 3.1416" />
+    <parent
+      link="SHOULDER" />
+    <child
+      link="ELBOW" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+</robot>

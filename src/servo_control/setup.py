@@ -28,6 +28,7 @@ setup(
     entry_points={
         'console_scripts': [
             'motor_node = servo_control.motor_node:main',
+            'motor_node_3dof = servo_control.motor_node_3dof:main',
         ],
     },
 )

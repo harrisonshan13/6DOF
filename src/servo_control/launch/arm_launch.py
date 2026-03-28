@@ -7,9 +7,15 @@ from launch_ros.actions import Node
 def generate_launch_description():
 
     urdf_path = os.path.join(
-        get_package_share_directory('URDF_TEST'),
+        get_package_share_directory('3DOF'),
         'urdf',
-        'URDF_TEST.urdf'
+        '3DOF.urdf'
+    )
+
+    rviz_config = os.path.join(
+        get_package_share_directory('3DOF'),
+        'rviz',
+        'urdf.rviz'
     )
 
     with open(urdf_path, 'r') as f:
@@ -37,8 +43,8 @@ def generate_launch_description():
         # 3. Motor Node — listens on /joint_commands, publishes to /joint_states
         Node(
             package='servo_control',
-            executable='motor_node',
-            name='sts_servo_node',
+            executable='motor_node_3dof',
+            name='sts_servo_node_3dof',
         ),
 
         # 4. RViz
@@ -46,6 +52,7 @@ def generate_launch_description():
             package='rviz2',
             executable='rviz2',
             name='rviz2',
+            arguments=['-d', rviz_config]
         ),
 
     ])
