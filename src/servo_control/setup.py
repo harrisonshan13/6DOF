@@ -29,6 +29,8 @@ setup(
         'console_scripts': [
             'motor_node = servo_control.motor_node:main',
             'motor_node_3dof = servo_control.motor_node_3dof:main',
+            'ping_motor = servo_control.ping_motor:main',
+            'servoid_assign = servo_control.servoid_assign:main',
         ],
     },
 )
