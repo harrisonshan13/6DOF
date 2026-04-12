@@ -6,7 +6,7 @@ from dynamixel_sdk import *
 import math
 
 # ─── Register Addresses for STS3215 ───────────────────────────────────────────
-ADDR_P_GAIN          = 21   # Proportional Gain (Stiffness)
+ADDR_P_GAIN          = 10 # Proportional Gain (Stiffness)
 ADDR_MAX_TORQUE      = 16   # Max Output (0-1000)
 ADDR_PUNCH           = 24   # Min Startup Current (0-1000)
 ADDR_GOAL_STS        = 42   # Goal Position
@@ -15,8 +15,8 @@ ADDR_PRESENT_POS     = 56   # Present Position (read back)
 # ─── Motor Mapping (Based on your URDF) ───────────────────────────────────────
 JOINT_MAP = {
     '360_JNT': 1,      # Base Rotation
-    'SHOULDER_JNT': 2, # Shoulder
-    'ELBOW_JNT': 3     # Elbow
+    'SHOULDER_JNT': 3, # Shoulder
+    'ELBOW_JNT': 2    # Elbow
 }
 
 class STSServoNode3DOF(Node):
