@@ -30,28 +30,21 @@ A 6-degree-of-freedom desktop robotic arm designed for kinesthetic-teach complia
 
 ## Gripper Test Stand
 
-Handheld test fixture for evaluating gripper end-effector variants side-by-side. Ergonomic pistol-grip form factor, trigger-actuated, with an onboard OLED for real-time feedback and JST-powered electronics.
+Handheld test fixture for evaluating gripper end-effector variants. Ergonomic pistol-grip form factor, trigger-actuated for real-time feedback.
+Enables quicker design iterations for gripper strategy. Portable nature allows for testing grip in different orientations similar to 6DOF arm.
 
-- **Trigger-driven** actuation via spur-gear reduction to opposing scissor-style jaws
-- **Onboard OLED** for setpoint / position readout
-- **JST-connected** battery + electronics stack (removable for iteration)
+- **Trigger-driven** actuation via spur-gear reduction. 4 bar linkage.
+- **Onboard OLED** for setpoint / position readout - _in progress_
+- **JST-connected** battery + electronics stack (removable for iteration) - _in progress_
 - **3D-printed** handle and housing designed for quick swap-out of gripper jaws
 
 ### Handle
-![Handle](docs/images/gripper-01-handle.jpeg)
-
-### Mechanism (top-down)
-Spur-gear reduction driving scissor jaws.
 ![Mechanism](docs/images/gripper-02-mechanism.jpeg)
 
 ### Assembled — side profile
 ![Side](docs/images/gripper-03-side.jpeg)
 
-### Assembled — angled
-![Angled](docs/images/gripper-04-angled.jpeg)
 
 ---
 
-## Contact
 
-Harrison Lanfrank — harrisonshan13@gmail.com
